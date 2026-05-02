@@ -1,0 +1,6 @@
+@Intern_Attendance_Portal_HostAddress = http://localhost:5001
+
+GET {{Intern_Attendance_Portal_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
