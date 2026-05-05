@@ -36,6 +36,29 @@
             "related": ".pdb;.xml"
           }
         }
+      },
+      "IAP.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "IAP.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/IAP.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/IAP.Application.dll": {}
+        }
+      },
+      "IAP.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/IAP.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/IAP.Domain.dll": {}
+        }
       }
     }
   },
@@ -75,10 +98,21 @@
         "microsoft.openapi.2.0.0.nupkg.sha512",
         "microsoft.openapi.nuspec"
       ]
+    },
+    "IAP.Application/1.0.0": {
+      "type": "project",
+      "path": "../IAP.Application/IAP.Application.csproj",
+      "msbuildProject": "../IAP.Application/IAP.Application.csproj"
+    },
+    "IAP.Domain/1.0.0": {
+      "type": "project",
+      "path": "../IAP.Domain/IAP.Domain.csproj",
+      "msbuildProject": "../IAP.Domain/IAP.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "IAP.Application >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 10.0.6"
     ]
   },
@@ -89,11 +123,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\IAP\\Backend\\IAP\\Intern Attendance Portal\\Intern Attendance Portal.csproj",
-      "projectName": "Intern Attendance Portal",
-      "projectPath": "E:\\IAP\\Backend\\IAP\\Intern Attendance Portal\\Intern Attendance Portal.csproj",
+      "projectUniqueName": "E:\\Intern-Attendance-Portal\\Backend\\IAP\\Intern Attendance Portal\\IAP.API.csproj",
+      "projectName": "IAP.API",
+      "projectPath": "E:\\Intern-Attendance-Portal\\Backend\\IAP\\Intern Attendance Portal\\IAP.API.csproj",
       "packagesPath": "C:\\Users\\ramso\\.nuget\\packages\\",
-      "outputPath": "E:\\IAP\\Backend\\IAP\\Intern Attendance Portal\\obj\\",
+      "outputPath": "E:\\Intern-Attendance-Portal\\Backend\\IAP\\Intern Attendance Portal\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -114,7 +148,11 @@
         "net10.0": {
           "framework": "net10.0",
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\Intern-Attendance-Portal\\Backend\\IAP\\IAP.Application\\IAP.Application.csproj": {
+              "projectPath": "E:\\Intern-Attendance-Portal\\Backend\\IAP\\IAP.Application\\IAP.Application.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -575,13 +613,5 @@
         }
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
-    }
-  ]
+  }
 }

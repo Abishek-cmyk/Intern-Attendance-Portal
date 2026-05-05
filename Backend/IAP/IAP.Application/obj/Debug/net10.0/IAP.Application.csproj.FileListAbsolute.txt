@@ -1,0 +1,12 @@
+E:\Intern-Attendance-Portal\Backend\IAP\IAP.Application\bin\Debug\net10.0\IAP.Application.deps.json
+E:\Intern-Attendance-Portal\Backend\IAP\IAP.Application\bin\Debug\net10.0\IAP.Application.dll
+E:\Intern-Attendance-Portal\Backend\IAP\IAP.Application\bin\Debug\net10.0\IAP.Application.pdb
+E:\Intern-Attendance-Portal\Backend\IAP\IAP.Application\obj\Debug\net10.0\IAP.Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\Intern-Attendance-Portal\Backend\IAP\IAP.Application\obj\Debug\net10.0\IAP.Application.AssemblyInfoInputs.cache
+E:\Intern-Attendance-Portal\Backend\IAP\IAP.Application\obj\Debug\net10.0\IAP.Application.AssemblyInfo.cs
+E:\Intern-Attendance-Portal\Backend\IAP\IAP.Application\obj\Debug\net10.0\IAP.Application.csproj.CoreCompileInputs.cache
+E:\Intern-Attendance-Portal\Backend\IAP\IAP.Application\obj\Debug\net10.0\IAP.Application.sourcelink.json
+E:\Intern-Attendance-Portal\Backend\IAP\IAP.Application\obj\Debug\net10.0\IAP.Application.dll
+E:\Intern-Attendance-Portal\Backend\IAP\IAP.Application\obj\Debug\net10.0\refint\IAP.Application.dll
+E:\Intern-Attendance-Portal\Backend\IAP\IAP.Application\obj\Debug\net10.0\IAP.Application.pdb
+E:\Intern-Attendance-Portal\Backend\IAP\IAP.Application\obj\Debug\net10.0\ref\IAP.Application.dll
