@@ -11,8 +11,7 @@
     {
         Present,
         Absent,
-        HalfDay,
-        Permission
+        HalfDay
     }
 
     public enum DeviceStatus

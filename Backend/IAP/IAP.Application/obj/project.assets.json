@@ -3393,23 +3393,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ramso\\.nuget\\packages\\": {},
+    "C:\\Users\\intern9\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Intern-Attendance-Portal\\Backend\\IAP\\IAP.Application\\IAP.Application.csproj",
+      "projectUniqueName": "D:\\IAP\\Intern-Attendance-Portal\\Backend\\IAP\\IAP.Application\\IAP.Application.csproj",
       "projectName": "IAP.Application",
-      "projectPath": "E:\\Intern-Attendance-Portal\\Backend\\IAP\\IAP.Application\\IAP.Application.csproj",
-      "packagesPath": "C:\\Users\\ramso\\.nuget\\packages\\",
-      "outputPath": "E:\\Intern-Attendance-Portal\\Backend\\IAP\\IAP.Application\\obj\\",
+      "projectPath": "D:\\IAP\\Intern-Attendance-Portal\\Backend\\IAP\\IAP.Application\\IAP.Application.csproj",
+      "packagesPath": "C:\\Users\\intern9\\.nuget\\packages\\",
+      "outputPath": "D:\\IAP\\Intern-Attendance-Portal\\Backend\\IAP\\IAP.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ramso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\intern9\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3425,8 +3425,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "E:\\Intern-Attendance-Portal\\Backend\\IAP\\IAP.Domain\\IAP.Domain.csproj": {
-              "projectPath": "E:\\Intern-Attendance-Portal\\Backend\\IAP\\IAP.Domain\\IAP.Domain.csproj"
+            "D:\\IAP\\Intern-Attendance-Portal\\Backend\\IAP\\IAP.Domain\\IAP.Domain.csproj": {
+              "projectPath": "D:\\IAP\\Intern-Attendance-Portal\\Backend\\IAP\\IAP.Domain\\IAP.Domain.csproj"
             }
           }
         }
@@ -3509,7 +3509,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",
