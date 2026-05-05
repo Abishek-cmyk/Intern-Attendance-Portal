@@ -1,0 +1,77 @@
+# Build results
+bin/
+obj/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Entity Framework
+*.mdf
+*.ldf
+
+# Publish output
+publish/
+*.publishsettings
+
+# NuGet
+*.nupkg
+packages/
+!packages/build/
+*.snupkg
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# DotCover
+*.dotCover
+
+# Azure
+*.azurePubxml
+
+# IIS Express
+/.vs/config/applicationhost.config
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temp files
+*.tmp
+*.temp
+
+# Test Results
+TestResults/
+*.trx
+
+# Coverage
+coverage/
+
+# SQLite DB (if used locally)
+*.db
+*.sqlite
+
+# Environment files
+.env
+.env.*
