@@ -8,24 +8,30 @@ namespace IAP.Domain.Entity
 {
     public class Company
     {
+        [Key]
+        [Required]
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(150)]
+        [MaxLength(30)]
         public string Name { get; set; } = string.Empty;
 
         [Required]
         [MaxLength(255)]
         public string Address { get; set; } = string.Empty;
 
+        [Required]
         [MaxLength(150)]
         [Column("contact_person")]
         public string? ContactPerson { get; set; }
 
+        [Required]
         [MaxLength(20)]
         public string? Phone { get; set; }
 
-        [MaxLength(150)]
+        [Required]
+        [MaxLength(40)]
+        [EmailAddress]
         public string? Email { get; set; }
 
         [Column("created_at")]
