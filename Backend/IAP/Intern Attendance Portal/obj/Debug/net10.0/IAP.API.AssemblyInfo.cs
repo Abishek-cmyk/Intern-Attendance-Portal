@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IAP.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dc3923f753b1bca57d32fd1316fcdf37a0a6157c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6fd0bd51604aca2eb7f51b9b0179f4a522ab9135")]
 [assembly: System.Reflection.AssemblyProductAttribute("IAP.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IAP.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
