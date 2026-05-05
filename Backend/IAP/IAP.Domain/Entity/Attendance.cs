@@ -75,14 +75,14 @@ namespace IAP.Domain.Entity
         public string? CheckOutSelfieUrl { get; set; }
 
         [Required]
-        [Column("perm")]
-        public bool Perm { get; set; } = false;
+        [Column("permission")]
+        public bool Permission { get; set; } = false;
 
         [Column("created_at")]
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         [Column("updated_at")]
-        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime UpdatedAt { get; set; }
 
         [ForeignKey("UserId")]
         public User User { get; set; } = default!;

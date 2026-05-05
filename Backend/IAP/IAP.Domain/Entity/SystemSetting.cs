@@ -38,13 +38,13 @@ namespace IAP.Domain.Entity
 
         [Required]
         [Column("radius_in_meters")]
-        [Range(1, 10000, ErrorMessage = "Radius must be between 1 and 10000 meters.")]
-        public int RadiusInMeters { get; set; } = 100;
+        [Range(1, 30, ErrorMessage = "Radius must be between 1 and 30 meters.")]
+        public int RadiusInMeters { get; set; } = 10;
 
         [Column("created_at")]
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         [Column("updated_at")]
-        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime UpdatedAt { get; set; }
     }
 }
