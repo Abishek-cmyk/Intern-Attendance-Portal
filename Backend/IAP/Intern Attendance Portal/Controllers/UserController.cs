@@ -20,7 +20,9 @@ namespace Intern_Attendance_Portal.Controllers
         [HttpPost]
         public ActionResult<User> Create([FromBody] User user)
         {
-
+            _dbcontext.Users.Add(user);
+            _dbcontext.SaveChanges();
+            return Ok();
         }
     }
 }
