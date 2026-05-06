@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Intern_Attendance_Portal.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260505092428_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20260506095142_seed")]
+    partial class seed
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -170,6 +170,19 @@ namespace Intern_Attendance_Portal.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Companies");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "Madurai",
+                            ContactPerson = "Ram",
+                            CreatedAt = new DateTime(2026, 5, 6, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Email = "hr@aecs.org",
+                            Name = "AECS",
+                            Phone = "9876543210",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("IAP.Domain.Entity.SystemSetting", b =>
@@ -219,6 +232,21 @@ namespace Intern_Attendance_Portal.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("system_setting");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CheckInEndTime = new TimeSpan(0, 10, 0, 0, 0),
+                            CheckInStartTime = new TimeSpan(0, 9, 0, 0, 0),
+                            CheckOutStartTime = new TimeSpan(0, 18, 0, 0, 0),
+                            CompanyId = 1,
+                            CreatedAt = new DateTime(2026, 5, 6, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Latitude = 9.9222395m,
+                            Longitude = 78.1389458m,
+                            RadiusInMeters = 10,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("IAP.Domain.Entity.User", b =>
@@ -242,8 +270,9 @@ namespace Intern_Attendance_Portal.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
-                    b.Property<int>("EmployeeId")
-                        .HasColumnType("integer")
+                    b.Property<string>("EmployeeId")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("employee_id");
 
                     b.Property<string>("Name")
@@ -269,6 +298,21 @@ namespace Intern_Attendance_Portal.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CompanyId = 1,
+                            CreatedAt = new DateTime(2026, 5, 6, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Email = "aravind@aecs.org",
+                            EmployeeId = "ADMIN01",
+                            Name = "Aravind",
+                            PasswordHash = "$2a$11$to/028k1IpfyGwiJw8WX0uZxFbSyT8HP0jeQ3H6M/I/bdDzvcjmxu",
+                            Role = 0,
+                            Status = 0,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("IAP.Domain.Entity.Attendance", b =>
