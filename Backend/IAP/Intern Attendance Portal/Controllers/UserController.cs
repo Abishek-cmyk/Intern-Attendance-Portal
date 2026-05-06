@@ -15,7 +15,7 @@ namespace Intern_Attendance_Portal.Controllers
         public UserController(ApplicationDbContext dbcontext)
         {
             _dbcontext = dbcontext;
-                
+
         }
         [HttpPost]
         public ActionResult<User> Create([FromBody] User user)

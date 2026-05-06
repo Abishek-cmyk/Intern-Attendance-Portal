@@ -20,5 +20,39 @@ namespace IAP.Domain.Data
         public DbSet<SystemSetting> SystemSettings { get; set; }
 
         public DbSet<Company> Companies { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Company>().HasData(
+                new Company
+                {
+                    Name = "AECS",
+                    Address = "Madurai",
+                    ContactPerson = "Ram",
+                    Phone = "9876543210",
+                    Email = "hr@aecs.org",
+                    CreatedAt = DateTime.Now,
+                }
+            );
+
+
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    CompanyId = 1,
+                    EmployeeId = "ADMIN01",
+                    Name = "Aravind",
+                    Email = "aravind@aecs.org",
+                    PasswordHash = ByCrypt("123"),
+
+
+                }
+
+            );
+
+
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace IAP.Domain.Entity
 
         [Required]
         [Column("employee_id")]
-        public int EmployeeId { get; set; }
+        public string EmployeeId { get; set; } = string.Empty;
 
         [Required]
         [MaxLength(100)]
