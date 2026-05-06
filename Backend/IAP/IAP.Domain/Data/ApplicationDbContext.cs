@@ -50,7 +50,21 @@ namespace IAP.Domain.Data
                     Role = UserRole.Admin,
                     Status = UserStatus.Active,
                     CreatedAt = new DateTime(2026, 05, 06, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new User
+                {
+                    Id = 2,
+                    CompanyId = 1,
+                    EmployeeId = "INTERN0001",
+                    Name = "Abi",
+                    Email = "abi@aecs.org",
+                    PasswordHash = "$2a$11$to/028k1IpfyGwiJw8WX0uZxFbSyT8HP0jeQ3H6M/I/bdDzvcjmxu",
+                    Role = UserRole.Intern,
+                    Status = UserStatus.Active,
+                    CreatedAt = new DateTime(2026, 05, 06, 0, 0, 0, DateTimeKind.Utc)
                 }
+
+
             );
 
             modelBuilder.Entity<SystemSetting>().HasData(
