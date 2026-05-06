@@ -29,4 +29,10 @@
     <ProjectReference Include="..\IAP.Domain\IAP.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\ICompanyService\" />
+    <Folder Include="Services\ISettingService\" />
+    <Folder Include="Services\IUserService\" />
+  </ItemGroup>
+
 </Project>
