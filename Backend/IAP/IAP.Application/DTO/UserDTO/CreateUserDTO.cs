@@ -8,7 +8,7 @@ namespace IAP.Application.DTOs.User
         [Required(ErrorMessage = "Company Id is required.")]
         public int CompanyId { get; set; }
 
-        [Required(ErrorMessage = "Employee Id is required.")
+        [Required(ErrorMessage = "Employee Id is required.")]
         public int EmployeeId { get; set; }
 
         [Required(ErrorMessage = "Name is required.")]
