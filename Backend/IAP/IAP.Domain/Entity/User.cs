@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IAP.Domain.Helper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -17,7 +18,7 @@ namespace IAP.Domain.Entity
 
         [Required]
         [Column("employee_id")]
-        public int EmployeeId { get; set; }
+        public string EmployeeId { get; set; } = string.Empty;
 
         [Required]
         [MaxLength(100)]
@@ -36,7 +37,7 @@ namespace IAP.Domain.Entity
         public UserRole Role { get; set; } = UserRole.Intern;
 
         [Required]
-        public UserStatus Status { get; set; }
+        public UserStatus Status { get; set; } = UserStatus.Active;
 
         [Column("created_at")]
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;

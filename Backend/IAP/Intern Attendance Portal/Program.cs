@@ -3,7 +3,6 @@ using IAP.Domain.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddScoped<Class1>();
 
 
 // Add services to the container.

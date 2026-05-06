@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Intern_Attendance_Portal.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -59,7 +59,7 @@ namespace Intern_Attendance_Portal.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     company_id = table.Column<int>(type: "integer", nullable: false),
-                    employee_id = table.Column<int>(type: "integer", nullable: false),
+                    employee_id = table.Column<string>(type: "text", nullable: false),
                     Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     Email = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     password_hash = table.Column<string>(type: "text", nullable: false),
