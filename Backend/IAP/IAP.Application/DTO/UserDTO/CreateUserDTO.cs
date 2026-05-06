@@ -5,29 +5,35 @@ namespace IAP.Application.DTOs.User
 {
     public class CreateUserDTO
     {
-        [Required]
+        [Required(ErrorMessage = "Company Id is required.")]
         public int CompanyId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Employee Id is required.")
         public int EmployeeId { get; set; }
 
-        [Required]
-        [MaxLength(100)]
+        [Required(ErrorMessage = "Name is required.")]
+        [StringLength(100, MinimumLength = 3,
+            ErrorMessage = "Name must be between 3 and 30 characters.")]
         public string Name { get; set; } = string.Empty;
 
-        [Required]
-        [MaxLength(100)]
-        [EmailAddress]
+        [Required(ErrorMessage = "Email is required.")]
+        [StringLength(100)]
+        [EmailAddress(ErrorMessage = "Invalid email format.")]
         public string Email { get; set; } = string.Empty;
 
-        [Required]
-        [MinLength(6)]
+        [Required(ErrorMessage = "Password is required.")]
+        [StringLength(100, MinimumLength = 6,
+            ErrorMessage = "Password must be at least 6 characters.")]
         public string Password { get; set; } = string.Empty;
 
-        [Required]
+        [Required(ErrorMessage = "Role is required.")]
+        [EnumDataType(typeof(UserRole),
+            ErrorMessage = "Invalid role.")]
         public UserRole Role { get; set; } = UserRole.Intern;
 
-        [Required]
+        [Required(ErrorMessage = "Status is required.")]
+        [EnumDataType(typeof(UserStatus),
+            ErrorMessage = "Invalid status.")]
         public UserStatus Status { get; set; } = UserStatus.Active;
     }
 }

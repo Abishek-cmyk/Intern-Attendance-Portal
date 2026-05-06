@@ -16,7 +16,11 @@ namespace IAP.Application.DTOs.User
 
         public UserRole Role { get; set; }
 
+        public string RoleName => Role.ToString();
+
         public UserStatus Status { get; set; }
+
+        public string StatusName => Status.ToString();
 
         public DateTime CreatedAt { get; set; }
 
