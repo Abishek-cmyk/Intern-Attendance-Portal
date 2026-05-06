@@ -25,4 +25,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="10.1.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositary\IUserRepositary\" />
+    <Folder Include="Repositary\ICompanyRepositary\" />
+    <Folder Include="Repositary\ISettingRepositary\" />
+  </ItemGroup>
+
 </Project>
