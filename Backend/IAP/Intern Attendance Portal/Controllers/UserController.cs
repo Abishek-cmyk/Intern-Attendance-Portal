@@ -41,7 +41,7 @@ namespace Intern_Attendance_Portal.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateUser(CreateUserDTO NewUser)
+        public async Task<ActionResult> CreateUser([FromBody] CreateUserDTO NewUser)
         {
             User user = _mapper.Map<User>(NewUser);
             bool isCreated = await _userService.CreateUserAsync(user);
@@ -50,10 +50,24 @@ namespace Intern_Attendance_Portal.Controllers
             return Ok("User created successfully...");
         }
 
-        //[HttpPut]
-        //public async Task<ActionResult> UpdateUser()
+        [HttpPut("{id:int}")]
+        public async Task<ActionResult> UpdateUser(int id, [FromBody] UpdateUserDTO updateUserDto)
+        {
+            User user = _mapper.Map<User>(updateUserDto);
+            bool isUpdated = await _userService.UpdateUserAsync(id, user);
+            if (isUpdated == false)
+                return Conflict("Unable to update the user! check the user id");
+            return Ok("User updated successfully...");
+        }
 
-
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult> DeleteUser(int id)
+        {
+            bool isDeleted = await _userService.DeleteUserAsync(id);
+            if (isDeleted == false)
+                return NotFound("User not found...");
+            return Ok("User Deleted");
+        }
 
 
     }

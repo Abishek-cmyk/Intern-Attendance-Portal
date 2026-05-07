@@ -13,6 +13,8 @@ namespace IAP.Application.Common
 
             CreateMap<User, UserDTO>().ReverseMap();
 
+            CreateMap<UpdateUserDTO, User>().ReverseMap();
+
             CreateMap<Company, CompanyDTO>().ReverseMap();
 
             CreateMap<CreateCompanyDTO, Company>().ReverseMap();
