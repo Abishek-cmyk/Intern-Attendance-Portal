@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace IAP.Domain.Interfaces
+namespace IAP.Application.Services
 {
-    internal class IUserRepository
+    internal class SettingService
     {
     }
 }

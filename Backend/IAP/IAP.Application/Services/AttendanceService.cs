@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace IAP.Domain.Repositary
+namespace IAP.Application.Services
 {
-    internal class CompanyRepository
+    internal class AttendanceService
     {
     }
 }

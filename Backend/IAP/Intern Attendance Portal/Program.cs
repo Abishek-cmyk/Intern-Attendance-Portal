@@ -1,6 +1,10 @@
 using IAP.Application.Common;
 using IAP.Domain.Data;
 using Microsoft.EntityFrameworkCore;
+using IAP.Domain.Interface;
+using IAP.Domain.Repository;
+using IAP.Application.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +37,15 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
 #endregion
+
+#region Config Repos
+builder.Services.AddTransient<IUserRepository, UserRepository>();
+#endregion
+
+#region Config Services
+builder.Services.AddScoped<UserService>();
+#endregion
+
 
 builder.Services.AddControllers();
 

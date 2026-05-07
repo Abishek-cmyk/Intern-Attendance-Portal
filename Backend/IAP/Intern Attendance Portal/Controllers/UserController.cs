@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using IAP.Application.DTOs.User;
+using IAP.Application.Services;
 using IAP.Domain.Data;
 using IAP.Domain.Entity;
+using IAP.Domain.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,47 +13,18 @@ namespace Intern_Attendance_Portal.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly ApplicationDbContext _dbcontext;
+        private readonly UserService _userService;
         private readonly IMapper _mapper;
 
-        public UserController(ApplicationDbContext dbcontext, IMapper mapper)
+        public UserController(IMapper mapper, UserService UserService)
         {
-            _dbcontext = dbcontext;
+            _userService = UserService;
             _mapper = mapper;
         }
 
-        [HttpPost]
-        public async Task<ActionResult> Create([FromBody] CreateUserDTO userDto)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
-            var emailExists = await _dbcontext.Users
-                .AnyAsync(x => x.Email == userDto.Email);
 
-            if (emailExists)
-            {
-                return BadRequest("Email already exists.");
-            }
 
-            var newUser = _mapper.Map<User>(userDto);
 
-            await _dbcontext.Users.AddAsync(newUser);
-            await _dbcontext.SaveChangesAsync();
-
-            return Ok("User Created Successfully...");
-        }
-
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserDTO>>> GetAll()
-        {
-            var users = await _dbcontext.Users.ToListAsync();
-
-            var userDTOs = _mapper.Map<IEnumerable<UserDTO>>(users);
-
-            return Ok(userDTOs);
-        }
     }
 }

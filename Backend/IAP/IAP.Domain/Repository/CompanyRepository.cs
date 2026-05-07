@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace IAP.Domain.Repositary
+namespace IAP.Domain.Repository
 {
-    internal class UserRepository
+    internal class CompanyRepository
     {
     }
 }
