@@ -1,4 +1,5 @@
 ﻿using IAP.Domain.Entity;
+using IAP.Domain.Helper;
 
 namespace IAP.Application.DTOs.User
 {
@@ -8,7 +9,7 @@ namespace IAP.Application.DTOs.User
 
         public int CompanyId { get; set; }
 
-        public int EmployeeId { get; set; }
+        public string EmployeeId { get; set; } = string.Empty;
 
         public string Name { get; set; } = string.Empty;
 

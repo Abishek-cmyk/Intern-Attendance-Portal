@@ -1,8 +1,9 @@
-﻿using IAP.Domain.Data;
+﻿using AutoMapper;
+using IAP.Application.DTOs.User;
+using IAP.Domain.Data;
 using IAP.Domain.Entity;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using Microsoft.EntityFrameworkCore;
 
 namespace Intern_Attendance_Portal.Controllers
 {
@@ -11,18 +12,46 @@ namespace Intern_Attendance_Portal.Controllers
     public class UserController : ControllerBase
     {
         private readonly ApplicationDbContext _dbcontext;
+        private readonly IMapper _mapper;
 
-        public UserController(ApplicationDbContext dbcontext)
+        public UserController(ApplicationDbContext dbcontext, IMapper mapper)
         {
             _dbcontext = dbcontext;
-
+            _mapper = mapper;
         }
+
         [HttpPost]
-        public ActionResult<User> Create([FromBody] User user)
+        public async Task<ActionResult> Create([FromBody] CreateUserDTO userDto)
         {
-            _dbcontext.Users.Add(user);
-            _dbcontext.SaveChanges();
-            return Ok();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var emailExists = await _dbcontext.Users
+                .AnyAsync(x => x.Email == userDto.Email);
+
+            if (emailExists)
+            {
+                return BadRequest("Email already exists.");
+            }
+
+            var newUser = _mapper.Map<User>(userDto);
+
+            await _dbcontext.Users.AddAsync(newUser);
+            await _dbcontext.SaveChangesAsync();
+
+            return Ok("User Created Successfully...");
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<UserDTO>>> GetAll()
+        {
+            var users = await _dbcontext.Users.ToListAsync();
+
+            var userDTOs = _mapper.Map<IEnumerable<UserDTO>>(users);
+
+            return Ok(userDTOs);
         }
     }
 }

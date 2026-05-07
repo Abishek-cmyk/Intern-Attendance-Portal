@@ -1,5 +1,4 @@
-﻿using IAP.Domain.Entity;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace IAP.Application.DTOs.User
 {
@@ -9,11 +8,13 @@ namespace IAP.Application.DTOs.User
         public int CompanyId { get; set; }
 
         [Required(ErrorMessage = "Employee Id is required.")]
-        public int EmployeeId { get; set; }
+        [StringLength(30, MinimumLength = 3,
+            ErrorMessage = "Employee Id must be between 3 and 30 characters.")]
+        public string EmployeeId { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Name is required.")]
         [StringLength(100, MinimumLength = 3,
-            ErrorMessage = "Name must be between 3 and 30 characters.")]
+            ErrorMessage = "Name must be between 3 and 100 characters.")]
         public string Name { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Email is required.")]
@@ -25,15 +26,5 @@ namespace IAP.Application.DTOs.User
         [StringLength(100, MinimumLength = 6,
             ErrorMessage = "Password must be at least 6 characters.")]
         public string Password { get; set; } = string.Empty;
-
-        [Required(ErrorMessage = "Role is required.")]
-        [EnumDataType(typeof(UserRole),
-            ErrorMessage = "Invalid role.")]
-        public UserRole Role { get; set; } = UserRole.Intern;
-
-        [Required(ErrorMessage = "Status is required.")]
-        [EnumDataType(typeof(UserStatus),
-            ErrorMessage = "Invalid status.")]
-        public UserStatus Status { get; set; } = UserStatus.Active;
     }
 }
