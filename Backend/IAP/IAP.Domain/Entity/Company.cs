@@ -7,6 +7,7 @@ using System.Text;
 
 namespace IAP.Domain.Entity
 {
+    [Table("Companies")]
     public class Company
     {
         [Key]
