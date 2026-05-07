@@ -22,6 +22,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql
     b => b.MigrationsAssembly("IAP.API")
     ));
 
+#endregion
+
+
+#region Configure Mapping
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 #endregion
 
