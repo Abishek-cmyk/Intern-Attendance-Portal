@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Intern_Attendance_Portal.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -22,9 +22,13 @@ namespace Intern_Attendance_Portal.Controllers
             _mapper = mapper;
         }
 
-
-
-
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<UserDTO>>> GetAllUsers()
+        {
+            var users = await _userService.GetAllUsers();
+            var usersDto = _mapper.Map<UserDTO>(users);
+            return Ok(usersDto);
+        }
 
     }
 }
