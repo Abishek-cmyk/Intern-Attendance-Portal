@@ -1,4 +1,5 @@
-﻿using IAP.Application.DTOs.Company;
+﻿using AutoMapper;
+using IAP.Application.DTOs.Company;
 using IAP.Domain.Entity;
 using IAP.Domain.Interface;
 
@@ -7,27 +8,19 @@ namespace IAP.Application.Services
     public class CompanyService
     {
         private readonly ICompanyRepository _companyRepo;
+        private readonly IMapper _mapper;
 
-        public CompanyService(ICompanyRepository companyRepo)
+        public CompanyService(ICompanyRepository companyRepo, IMapper mapper)
         {
             _companyRepo = companyRepo;
+            _mapper = mapper;
         }
 
         public async Task<List<CompanyDTO>> GetAllCompanyAsync()
         {
             var companies = await _companyRepo.GetAllAsync();
 
-            return companies.Select(company => new CompanyDTO
-            {
-                Id = company.Id,
-                Name = company.Name,
-                Address = company.Address,
-                ContactPerson = company.ContactPerson ?? string.Empty,
-                Phone = company.Phone ?? string.Empty,
-                Email = company.Email ?? string.Empty,
-                CreatedAt = company.CreatedAt,
-                UpdatedAt = company.UpdatedAt
-            }).ToList();
+            return _mapper.Map<List<CompanyDTO>>(companies);
         }
 
         public async Task<CompanyDTO?> GetCompanyByIdAsync(int id)
@@ -39,40 +32,36 @@ namespace IAP.Application.Services
                 return null;
             }
 
-            return new CompanyDTO
-            {
-                Id = company.Id,
-                Name = company.Name,
-                Address = company.Address,
-                ContactPerson = company.ContactPerson ?? string.Empty,
-                Phone = company.Phone ?? string.Empty,
-                Email = company.Email ?? string.Empty,
-                CreatedAt = company.CreatedAt,
-                UpdatedAt = company.UpdatedAt
-            };
+            return _mapper.Map<CompanyDTO>(company);
         }
 
         public async Task<string> CreateCompanyAsync(CreateCompanyDTO dto)
         {
-            var company = new Company
+            var isEmailExists = await _companyRepo
+                .IsEmailExistsAsync(dto.Email);
+
+            if (isEmailExists)
             {
-                Name = dto.Name,
-                Address = dto.Address,
-                ContactPerson = dto.ContactPerson,
-                Phone = dto.Phone,
-                Email = dto.Email,
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow
-            };
+                return "Email already exists.";
+            }
+
+            var company = _mapper.Map<Company>(dto);
+
+            company.CreatedAt = DateTime.UtcNow;
+            company.UpdatedAt = DateTime.UtcNow;
 
             await _companyRepo.CreateAsync(company);
 
             var result = await _companyRepo.SaveAsync();
 
-            return result ? "Company created successfully." : "Failed to create company.";
+            return result
+                ? "Company created successfully."
+                : "Failed to create company.";
         }
 
-        public async Task<string> UpdateCompanyAsync(int id, UpdateCompanyDTO dto)
+        public async Task<string> UpdateCompanyAsync(
+            int id,
+            UpdateCompanyDTO dto)
         {
             var company = await _companyRepo.GetByIdAsync(id);
 
@@ -81,18 +70,30 @@ namespace IAP.Application.Services
                 return "Company not found.";
             }
 
-            company.Name = dto.Name;
-            company.Address = dto.Address;
-            company.ContactPerson = dto.ContactPerson;
-            company.Phone = dto.Phone;
-            company.Email = dto.Email;
+            if (!string.Equals(company.Email,
+                dto.Email,
+                StringComparison.OrdinalIgnoreCase))
+            {
+                var isEmailExists = await _companyRepo
+                    .IsEmailExistsAsync(dto.Email);
+
+                if (isEmailExists)
+                {
+                    return "Email already exists.";
+                }
+            }
+
+            _mapper.Map(dto, company);
+
             company.UpdatedAt = DateTime.UtcNow;
 
             _companyRepo.Update(company);
 
             var result = await _companyRepo.SaveAsync();
 
-            return result ? "Company updated successfully." : "Failed to update company.";
+            return result
+                ? "Company updated successfully."
+                : "Failed to update company.";
         }
 
         public async Task<string> DeleteCompanyAsync(int id)
@@ -108,7 +109,9 @@ namespace IAP.Application.Services
 
             var result = await _companyRepo.SaveAsync();
 
-            return result ? "Company deleted successfully." : "Failed to delete company.";
+            return result
+                ? "Company deleted successfully."
+                : "Failed to delete company.";
         }
     }
 }
