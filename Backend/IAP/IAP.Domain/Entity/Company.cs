@@ -33,7 +33,7 @@ namespace IAP.Domain.Entity
         [Required]
         [MaxLength(40)]
         [EmailAddress]
-        public string? Email { get; set; }
+        public string? Email { get; set; } = string.Empty;
 
         [Column("created_at")]
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;

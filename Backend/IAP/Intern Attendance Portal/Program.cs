@@ -40,10 +40,12 @@ builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
 #region Config Repos
 builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<ICompanyRepository, CompanyRepository>();
 #endregion
 
 #region Config Services
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<CompanyService>();
 #endregion
 
 

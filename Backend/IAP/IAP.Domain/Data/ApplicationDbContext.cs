@@ -19,7 +19,7 @@ namespace IAP.Domain.Data
 
         public DbSet<SystemSetting> SystemSettings { get; set; }
 
-        public DbSet<Company> Companies { get; set; }
+        public DbSet<Company> Company { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
