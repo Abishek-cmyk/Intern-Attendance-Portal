@@ -48,6 +48,10 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<CompanyService>();
 #endregion
 
+#region Config Swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+#endregion
 
 builder.Services.AddControllers();
 
@@ -58,6 +62,8 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseCors("customPolicy");

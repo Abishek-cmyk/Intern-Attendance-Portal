@@ -30,5 +30,6 @@ namespace Intern_Attendance_Portal.Controllers
             return Ok(usersDto);
         }
 
+
     }
 }
