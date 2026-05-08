@@ -1,3 +1,9 @@
+# Solution user files
+*.slnx
+*.slnLaunch.user
+*.user
+
+
 # Build results
 bin/
 obj/

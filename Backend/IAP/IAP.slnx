@@ -1,5 +1,0 @@
-<Solution>
-  <Project Path="IAP.Application/IAP.Application.csproj" Id="719e1086-d6bf-4533-9b97-8fc3a682b38a" />
-  <Project Path="IAP.Domain/IAP.Domain.csproj" Id="db336e1d-dfd9-4d3c-b94b-5d22aeb79eb1" />
-  <Project Path="Intern Attendance Portal/IAP.API.csproj" />
-</Solution>
