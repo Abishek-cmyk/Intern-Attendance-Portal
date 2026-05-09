@@ -11,6 +11,7 @@ namespace IAP.Application.Common
     {
         public MappingProfile()
         {
+            // User by inzam
             CreateMap<CreateUserDTO, User>().ReverseMap();
 
             CreateMap<User, UserDTO>()
@@ -22,6 +23,7 @@ namespace IAP.Application.Common
 
             CreateMap<UpdateUserDTO, User>().ReverseMap();
 
+            // User by abi
             CreateMap<Company, CompanyDTO>()
                 .ForMember(dest => dest.CreatedAt,
                     opt => opt.MapFrom(src =>
@@ -40,7 +42,7 @@ namespace IAP.Application.Common
 
             CreateMap<CreateSystemSettingDTO, SystemSetting>().ReverseMap();
 
-            CreateMap<UpdateSystemSettingDTO, SystemSetting > ().ReverseMap();
+            CreateMap<UpdateSystemSettingDTO, SystemSetting>().ReverseMap();
 
 
         }
