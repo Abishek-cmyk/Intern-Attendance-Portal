@@ -69,11 +69,6 @@ namespace Intern_Attendance_Portal.Controllers
             return Ok("User Deleted");
         }
 
-        //public async Task<ActionResult> UpdateUser(int id)
-        //{
-
-        //}
-
 
     }
 }
