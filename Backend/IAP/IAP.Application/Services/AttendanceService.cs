@@ -4,7 +4,7 @@ using System.Text;
 
 namespace IAP.Application.Services
 {
-    public class AttendanceService
+    public class IAttendanceService
     {
     }
 }

@@ -52,7 +52,7 @@ builder.Services.AddTransient<ISettingRepository, SettingRepository>();
 #region Config Services
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<CompanyService>();
-builder.Services.AddScoped<AttendanceService>();
+builder.Services.AddScoped<IAttendanceService>();
 builder.Services.AddScoped<SettingService>();
 #endregion
 
