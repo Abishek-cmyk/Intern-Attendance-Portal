@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using IAP.Domain.Interface;
 using IAP.Domain.Repository;
 using IAP.Application.Services;
+using IAP.Domain.Interfaces;
+using IAP.Application.DTOs.SystemSetting;
+using IAP.Domain.Repositories;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -41,11 +44,16 @@ builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 #region Config Repos
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<ICompanyRepository, CompanyRepository>();
+builder.Services.AddTransient<IAttendanceRepository, AttendanceRepository>();
+builder.Services.AddTransient<ISettingRepository, SettingRepository>();
+
 #endregion
 
 #region Config Services
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<CompanyService>();
+builder.Services.AddScoped<AttendanceService>();
+builder.Services.AddScoped<SettingService>();
 #endregion
 
 #region Config Swagger

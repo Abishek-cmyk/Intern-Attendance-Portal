@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using IAP.Application.DTOs.Attendance;
 using IAP.Application.DTOs.Company;
 using IAP.Application.DTOs.SystemSetting;
 using IAP.Application.DTOs.User;
@@ -44,6 +45,12 @@ namespace IAP.Application.Common
 
             CreateMap<UpdateSystemSettingDTO, SystemSetting>().ReverseMap();
 
+            // Attendance by inzam
+            CreateMap<AttendanceDTO, Attendance>().ReverseMap();
+
+            CreateMap<CreateAttendanceDTO, Attendance>().ReverseMap();
+
+            CreateMap<UpdateAttendanceDTO, Attendance>().ReverseMap();
 
         }
     }

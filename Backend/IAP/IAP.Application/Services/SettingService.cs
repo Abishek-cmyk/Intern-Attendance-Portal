@@ -4,7 +4,7 @@ using System.Text;
 
 namespace IAP.Application.Services
 {
-    internal class SettingService
+    public class SettingService
     {
     }
 }
