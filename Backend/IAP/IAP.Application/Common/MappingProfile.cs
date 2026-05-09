@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using IAP.Application.DTOs.Company;
+using IAP.Application.DTOs.SystemSetting;
 using IAP.Application.DTOs.User;
 using IAP.Domain.Entity;
 using IAP.Domain.Helper;
@@ -29,6 +30,15 @@ namespace IAP.Application.Common
             CreateMap<CreateCompanyDTO, Company>().ReverseMap();
 
             CreateMap<UpdateCompanyDTO, Company>().ReverseMap();
+
+            //System Setiing by Abi
+            CreateMap<SystemSetting, SystemSettingDTO>().ReverseMap();
+
+            CreateMap<CreateSystemSettingDTO, SystemSetting>().ReverseMap();
+
+            CreateMap<UpdateSystemSettingDTO, SystemSetting > ().ReverseMap();
+
+
         }
     }
 }
