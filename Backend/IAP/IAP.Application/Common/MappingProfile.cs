@@ -12,7 +12,12 @@ namespace IAP.Application.Common
         {
             CreateMap<CreateUserDTO, User>().ReverseMap();
 
-            CreateMap<User, UserDTO>().ReverseMap();
+            CreateMap<User, UserDTO>()
+                    .ForMember(dest => dest.CreatedAt,
+                        opt => opt.MapFrom(src => DateTimeIST.ConvertUtcToIst(src.CreatedAt)))
+                    .ForMember(dest => dest.UpdatedAt,
+                        opt => opt.MapFrom(src => DateTimeIST.ConvertUtcToIst(src.UpdatedAt)))
+                    .ReverseMap();
 
             CreateMap<UpdateUserDTO, User>().ReverseMap();
 
@@ -22,9 +27,8 @@ namespace IAP.Application.Common
                         DateTimeIST.ConvertUtcToIst(src.CreatedAt)))
                 .ForMember(dest => dest.UpdatedAt,
                     opt => opt.MapFrom(src =>
-                        DateTimeIST.ConvertUtcToIst(src.UpdatedAt)));
-
-            CreateMap<CompanyDTO, Company>();
+                        DateTimeIST.ConvertUtcToIst(src.UpdatedAt)))
+                .ReverseMap();
 
             CreateMap<CreateCompanyDTO, Company>().ReverseMap();
 
