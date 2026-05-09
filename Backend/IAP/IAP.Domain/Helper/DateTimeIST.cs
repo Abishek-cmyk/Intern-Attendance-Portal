@@ -13,5 +13,12 @@ namespace IAP.Domain.Helper
                 TimeZoneInfo.FindSystemTimeZoneById("India Standard Time")
             );
         }
+        public static DateTime ConvertUtcToIst(DateTime utcDateTime)
+        {
+            return TimeZoneInfo.ConvertTimeFromUtc(
+                DateTime.SpecifyKind(utcDateTime, DateTimeKind.Utc),
+                TimeZoneInfo.FindSystemTimeZoneById("India Standard Time")
+            );
+        }
     }
 }

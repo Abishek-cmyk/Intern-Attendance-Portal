@@ -2,6 +2,7 @@
 using IAP.Application.DTOs.Company;
 using IAP.Application.DTOs.User;
 using IAP.Domain.Entity;
+using IAP.Domain.Helper;
 
 namespace IAP.Application.Common
 {
@@ -15,7 +16,15 @@ namespace IAP.Application.Common
 
             CreateMap<UpdateUserDTO, User>().ReverseMap();
 
-            CreateMap<Company, CompanyDTO>().ReverseMap();
+            CreateMap<Company, CompanyDTO>()
+                .ForMember(dest => dest.CreatedAt,
+                    opt => opt.MapFrom(src =>
+                        DateTimeIST.ConvertUtcToIst(src.CreatedAt)))
+                .ForMember(dest => dest.UpdatedAt,
+                    opt => opt.MapFrom(src =>
+                        DateTimeIST.ConvertUtcToIst(src.UpdatedAt)));
+
+            CreateMap<CompanyDTO, Company>();
 
             CreateMap<CreateCompanyDTO, Company>().ReverseMap();
 
